@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.ProductDetailsActivity">
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="match_parent"
+        app:cardCornerRadius="7dp"
+        android:layout_margin="12dp"
+        android:layout_height="250dp">
+
+        <com.denzcoskun.imageslider.ImageSlider
+            android:id="@+id/image_slider"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:iss_auto_cycle="true"
+            app:iss_period="1000"
+            app:iss_delay="0"/>
+    </com.google.android.material.card.MaterialCardView>
+
+
+    <TextView
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="12dp"
+        android:text="simple name"
+        android:id="@+id/name"
+        app:layout_constraintTop_toBottomOf="@id/cardView"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:layout_marginEnd="12dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@id/addToCard"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="18dp"
+        android:text="textview"
+        android:id="@+id/description"
+        app:layout_constraintTop_toBottomOf="@id/name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"/>
+
+    <TextView
+        android:id="@+id/sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        android:text="120"
+        app:layout_constraintTop_toBottomOf="@id/cardView"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+
+    <TextView
+        android:id="@+id/addToCard"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:padding="12dp"
+        android:gravity="center"
+        android:background="@color/colorPrimary"
+        android:text="Add to Card"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
