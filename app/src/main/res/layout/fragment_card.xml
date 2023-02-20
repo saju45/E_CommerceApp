@@ -6,17 +6,72 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragment.CardFragment">
 
-
-    <TextView
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:text="Cart"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <androidx.recyclerview.widget.RecyclerView
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:id="@+id/cardRv"
+        app:layout_constraintBottom_toTopOf="@id/cardLayout"
+        tools:listitem="@layout/card_layout_item"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="12dp"
+        android:layout_height="0dp"/>
 
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardLayout"
+        app:cardElevation="7dp"
+        app:cardCornerRadius="12dp"
+        android:layout_margin="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:padding="12sp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:layout_marginStart="12dp"
+                app:layout_constraintBottom_toTopOf="@id/product_sp"
+                android:id="@+id/total_item"
+                android:text="Total item in card is 10"
+                app:layout_constraintStart_toEndOf="@id/image"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+            <TextView
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:layout_marginStart="12dp"
+                app:layout_constraintBottom_toTopOf="@id/product_sp"
+                android:id="@+id/total_price"
+                android:text="120,000"
+                app:layout_constraintStart_toEndOf="@id/image"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/checkout"
+                android:text="Checkout"
+                android:layout_marginTop="12dp"
+                android:textAllCaps="false"/>
+
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
