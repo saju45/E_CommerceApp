@@ -18,6 +18,7 @@ import com.example.ecommerce2.room_db.ProductModel
 class CardFragment : Fragment() {
 
     private lateinit var binding:FragmentCardBinding
+    private lateinit var list:ArrayList<String>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,9 +41,16 @@ class CardFragment : Fragment() {
     private fun getCardData() {
 
         val dao=AppDatabase.getInstance(requireContext()).productDao()
-        dao.getAllProduct().observe(requireActivity(), Observer {
 
+        list=ArrayList()
+
+        dao.getAllProduct().observe(requireActivity(), Observer {
             binding.cardRv.adapter=CardAdapter(requireContext(),it)
+
+            list.clear()
+            for(data in it){
+                list.add(data.productId)
+            }
             totalCoast(it)
         })
     }
@@ -59,7 +67,13 @@ class CardFragment : Fragment() {
 
         binding.checkout.setOnClickListener {
             val intent=Intent(requireContext(), AddressActivity::class.java)
-            intent.putExtra("totalCost",total)
+
+            val b=Bundle()
+            b.putString("totalCost",total.toString())
+            b.putStringArrayList("productIds",list)
+            intent.putExtras(b)
+           // intent.putExtra("totalCost",total.toString())
+           // intent.putStringArrayListExtra("productIds",list)
             startActivity(intent)
         }
 

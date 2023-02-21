@@ -1,6 +1,7 @@
 package com.example.ecommerce2.activity
 
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -55,6 +56,11 @@ class RegisterActivity : AppCompatActivity() {
 
         dialog.show()
 
+        val preferences=this.getSharedPreferences("user", MODE_PRIVATE)
+        val editor=preferences.edit()
+        editor.putString("name",binding.nameEt.text.toString())
+        editor.putString("number",binding.numberEt.text.toString())
+        editor.apply()
 
        val data=UserModel(userName = binding.nameEt.text.toString(), userPhoneNumber = binding.numberEt.text.toString())
 
